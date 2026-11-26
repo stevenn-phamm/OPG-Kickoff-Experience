@@ -504,7 +504,6 @@ body.no-webgl .sky-fallback { opacity: 1; }
 </svg>
   </div>
   <div class="top-actions">
-    <span class="pill"><span class="dot"></span>Copilot Premium Kickoff</span>
     <button class="icon-btn" id="open-chapters" type="button" aria-label="Open the list of sections"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/></svg>Sections</button>
     <button class="icon-btn" id="fullscreen" type="button" aria-label="Toggle fullscreen"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.3 6V2.3H6M10 2.3h3.7V6M13.7 10v3.7H10M6 13.7H2.3V10"/></svg><span>Fullscreen</span></button>
   </div>
@@ -565,15 +564,11 @@ body.no-webgl .sky-fallback { opacity: 1; }
     { name: 'Leonid Tolstikov', role: 'UX Designer', email: 'leonid.tolstikov@opg.com' }
   ];
   var bdoTeam = [
-    { name: "Jeff O'Neill", role: 'Engagement Leader', email: 'joneill@bdo.ca', photo: 'team-oneill.jpg' },
     { name: 'Ahmad Ovais', role: 'Engagement Oversight', email: 'aovais@bdo.ca' },
     { name: 'Kelsey Kachur', role: 'Project Manager', email: 'kkachur@bdo.ca', photo: 'team-kachur.jpg' },
     { name: 'Steven Pham', role: 'Adoption SME', email: 'stpham@bdo.ca', photo: 'team-pham.jpg' },
     { name: 'Thierry Aime', role: 'Adoption SME', email: 'taime@bdo.ca' },
     { name: 'Charlotte Jabbour', role: 'Adoption SME', email: 'cjabbour@bdo.ca' }
-  ];
-  var bdoSecurity = [
-    ['Ajay Jiwanand', 'Security Lead'], ['Sacha Blasiak-Priestley', 'Security Lead'], ['Mahilla Himalayaratnam', 'Security SME'], ['Kevin Truong', 'Security SME'], ['Anthony Ferrante', 'Account Manager']
   ];
   var initials = function (n) { return n.replace(/'/g, '').split(/\s+/).map(function (p) { return p[0]; }).slice(0, 2).join(''); };
   var personCard = function (p, bdo) {
@@ -587,7 +582,6 @@ body.no-webgl .sky-fallback { opacity: 1; }
     ['Safe AI and a better working day', 'experience', 'Transmission corridor'],
     ['Where to get support', 'support', 'Switchyard'],
     ['Why Copilot Premium', 'why', 'Turbine hall'],
-    ['What you get, and where', 'compare', 'Turbine floor'],
     ['Your learning path', 'personas', 'Hydroelectric dam'],
     ['Next steps', 'nextsteps', 'Above the station']
   ];
@@ -725,8 +719,7 @@ body.no-webgl .sky-fallback { opacity: 1; }
         return '<p class="kicker">04 / The people behind it</p><h2>Project <em>Team</em></h2>' +
           '<div class="team-block"><div class="tb-head"><h3>The OPG team</h3><span class="org">Ontario Power Generation</span></div><div class="people" style="--cols:4">' + opgTeam.map(function (p) { return personCard(p, false); }).join('') + '</div>' +
           '<div class="chips" style="margin-top:.7rem"><span class="chip"><b>+ OPG AI Ambassadors</b><span>your first point of contact in every team</span></span></div></div>' +
-          '<div class="team-block"><div class="tb-head"><h3>The BDO adoption team</h3><span class="org bdo">Delivery partner \u00b7 Copilot Care+</span></div><div class="people" style="--cols:3">' + bdoTeam.map(function (p) { return personCard(p, true); }).join('') + '</div>' +
-          '<div class="chips" style="margin-top:.7rem">' + bdoSecurity.map(function (s) { return '<span class="chip"><b>' + s[0] + '</b><span>' + s[1] + '</span></span>'; }).join('') + '</div></div>';
+          '<div class="team-block"><div class="tb-head"><h3>The BDO adoption team</h3><span class="org bdo">Delivery partner \u00b7 Copilot Care+</span></div><div class="people" style="--cols:3">' + bdoTeam.map(function (p) { return personCard(p, true); }).join('') + '</div></div>';
       } },
     { id: 'experience', label: 'A better working day', place: 'Transmission corridor', side: 'left', cls: 'mid',
       html: function () {
@@ -773,30 +766,9 @@ body.no-webgl .sky-fallback { opacity: 1; }
           });
         });
       } },
-    { id: 'compare', label: 'Basic or Premium', place: 'Turbine floor \u00b7 Unit 2', side: 'wide-left', cls: 'wide',
-      html: function () {
-        return '<p class="kicker">09 / Choose the depth</p><h2>Basic Chat <em>Or Full Context?</em></h2>' +
-          '<p class="sub">Microsoft Copilot experiences differ by data grounding, integration depth, and licensing.</p>' +
-          '<div class="two-col"><div class="stack"><div class="seg" role="tablist" aria-label="Compare Copilot experiences"><button class="on" type="button" role="tab" aria-selected="true" data-cmp="basic">Basic</button><button type="button" role="tab" aria-selected="false" data-cmp="premium">Premium</button></div>' +
-          '<article class="cmp on" data-cmp-panel="basic"><span class="lab">Copilot Chat (Basic)</span><h3>Web-first assistance.</h3><p>Securely interact with Copilot Chat using web data only.</p><ul><li>Responses are grounded in data from the public web.</li><li>To use organizational content, you provide it in the prompt, upload a file, use open content in select apps, or use a pay-as-you-go agent.</li><li>Access to declarative agents grounded in instructions and public websites.</li></ul></article>' +
-          '<article class="cmp premium" data-cmp-panel="premium"><span class="lab">Copilot Premium</span><h3>Work-aware assistance.</h3><p>The full add-on licensed experience, including everything in Copilot Chat (Basic).</p><ul><li>Uses both web and organizational data through Microsoft Graph and Work IQ.</li><li>Pulls work context automatically from emails, files, meetings, calendars, teams, and organizational relationships.</li><li>Includes priority access for better performance and availability, plus deep integration with Microsoft 365 apps and services.</li></ul></article></div><div class="stack">' +
-          '<div class="cpui" role="img" aria-label="Illustration of the Copilot Premium pane in Word: a prompt is typed and Copilot answers with citations"><div class="bar"><i></i><i></i><i></i>' + appImg('word') + '<span>Q1 work plan update.docx</span></div><div class="body"><div class="doc"><b></b><i></i><i></i><i class="s"></i><i></i><i></i><i class="s"></i></div>' +
-          '<div class="pane"><div class="ph-head">' + I.spark + 'Copilot <span class="badge">Premium</span></div><div class="msg user">Summarise this and list the decisions</div><div class="msg bot"><span></span><span></span><span></span><div class="cites"><em>' + appImg('word') + 'Q1 update</em><em>' + appImg('teams') + 'Planning call</em></div></div></div></div></div>' +
-          '<div class="caps"><span>' + I.spark.replace('<svg', '<svg class="ico-sm" style="fill:#c9b5ff;stroke:none"') + 'Work IQ</span><span>' + appImg('sharepoint') + appImg('outlook') + 'Your files</span><span><img src="' + img('claude-logo.png') + '" alt="" /><img src="' + img('chatgpt-logo.svg') + '" alt="" />AI models</span></div>' +
-          '<a class="src" href="https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-overview" target="_blank" rel="noreferrer">Source: Microsoft Learn ' + I.out + '</a></div></div>';
-      },
-      mount: function (el) {
-        el.querySelectorAll('[data-cmp]').forEach(function (b) {
-          b.addEventListener('click', function () {
-            var k = b.getAttribute('data-cmp');
-            el.querySelectorAll('[data-cmp]').forEach(function (x) { x.classList.toggle('on', x === b); x.setAttribute('aria-selected', String(x === b)); });
-            el.querySelectorAll('[data-cmp-panel]').forEach(function (p) { p.classList.toggle('on', p.getAttribute('data-cmp-panel') === k); });
-          });
-        });
-      } },
     { id: 'copilot', label: 'What is Copilot Premium', place: 'Control gallery', side: 'left', cls: 'mid',
       html: function () {
-        return '<p class="kicker">10 / The everyday layer</p><h2>What Is <em>Copilot Premium?</em></h2>' +
+        return '<p class="kicker">09 / The everyday layer</p><h2>What Is <em>Copilot Premium?</em></h2>' +
           '<p class="lede">Copilot Premium is an AI productivity tool for work, integrated into Microsoft 365 apps and services.</p>' +
           '<div class="app-chips">' + ['word', 'excel', 'powerpoint', 'outlook', 'teams'].map(function (k) { return '<span>' + appImg(k) + appName[k] + '</span>'; }).join('') + '</div>' +
           '<div class="tabs" role="tablist" aria-label="Copilot Premium focus areas"><button class="tab on" type="button" role="tab" aria-selected="true" data-focus="context">Work IQ</button><button class="tab" type="button" role="tab" aria-selected="false" data-focus="apps">In your apps</button><button class="tab" type="button" role="tab" aria-selected="false" data-focus="secure">Secure by design</button></div>' +
@@ -816,7 +788,7 @@ body.no-webgl .sky-fallback { opacity: 1; }
       } },
     { id: 'personas', label: 'A class for every persona', place: 'Hydroelectric dam', side: 'left', cls: 'mid',
       html: function () {
-        return '<p class="kicker">11 / The learning map</p><h2>A Class For <em>Every Persona</em></h2>' +
+        return '<p class="kicker">10 / The learning map</p><h2>A Class For <em>Every Persona</em></h2>' +
           '<p class="sub">A persona is simply a group of people who do similar work. Like water through a dam, the same power comes through many channels.</p>' +
           '<div class="levels"><div class="level"><b>Level 100 \u00b7 Foundations</b><p>General enough for everyone. Whatever group you are in, you get the same value out of them.</p></div><div class="level acc"><b>Level 200 \u00b7 Persona-based</b><p>Built around the personas. Each session works on the kind of task that group actually does.</p></div></div>' +
           '<div class="tabs" role="tablist" aria-label="Workforce personas">' + personas.map(function (p, i) { return '<button class="tab' + (i ? '' : ' on') + '" type="button" role="tab" aria-selected="' + (i === 0) + '" data-persona="' + p[0] + '">' + p[1] + '</button>'; }).join('') + '</div>' +
@@ -834,7 +806,7 @@ body.no-webgl .sky-fallback { opacity: 1; }
       } },
     { id: 'courses', label: 'Course catalogue', place: 'Hydro powerhouse', side: 'wide-right', cls: 'wide',
       html: function () {
-        return '<p class="kicker">12 / The curriculum</p><h2>Course <em>Catalogue</em></h2>' +
+        return '<p class="kicker">11 / The curriculum</p><h2>Course <em>Catalogue</em></h2>' +
           '<p class="sub">Every part of the learning path, and what each one covers.</p>' +
           '<div class="courses">' + courses.map(function (c) { return '<article class="course' + (c.feature ? ' feature' : '') + '" style="--acc:' + c.acc + '"><div class="ct"><span class="tg">' + c.tag + '</span><span class="ln">' + c.len + '</span></div><h3>' + c.title + '</h3><p>' + c.text + '</p><span class="who">' + c.who + '</span></article>'; }).join('') + '</div>' +
           '<p class="sub">Start with the foundations, then pick the app labs that match your day. Office hours and the AMA channel are open throughout.</p>';
@@ -842,7 +814,7 @@ body.no-webgl .sky-fallback { opacity: 1; }
     { id: 'calendar', label: 'Training calendar', place: 'Solar field \u00b7 Afternoon', side: 'wide-left', cls: 'wide',
       html: function () {
         var counts = {}; sessions.forEach(function (s) { counts[s.track] = (counts[s.track] || 0) + 1; });
-        return '<p class="kicker">13 / When it happens</p><h2>Training <em>Calendar</em></h2>' +
+        return '<p class="kicker">12 / When it happens</p><h2>Training <em>Calendar</em></h2>' +
           '<ol class="phases"><li style="--c:#4f9dff"><strong>Kickoff &amp; champions</strong><span>January</span></li><li style="--c:#33c3f0"><strong>Level 100 &amp; app labs</strong><span>Late Jan \u2013 mid Feb</span></li><li style="--c:#ee5091"><strong>Level 200 persona training</strong><span>Late Feb \u2013 mid Mar</span></li><li style="--c:#fc7942"><strong>Prompt-a-thon &amp; measure</strong><span>From mid March</span></li></ol>' +
           '<div class="cal-legend">' + Object.keys(TRACKS).map(function (k) { return '<span><i class="dot" style="--c:' + TRACKS[k][1] + '"></i>' + TRACKS[k][0] + ' <b>' + (counts[k] || 0) + '</b></span>'; }).join('') + '</div>' +
           '<div class="cal-wrap"><div class="months">' + monthGrid(2027, 0) + monthGrid(2027, 1) + monthGrid(2027, 2) + '</div><div class="cal-detail" aria-live="polite" data-cal-detail>' + dayDetail('2027-01-12') + '</div></div>' +
@@ -862,7 +834,7 @@ body.no-webgl .sky-fallback { opacity: 1; }
         var crit = [['Feasibility', 'Can Copilot Premium realistically support it?'], ['Efficiency', 'Does it save time, cut manual effort, or speed decisions?'], ['Broad applicability', 'Does it help a whole team or function, not just one person?'], ['Microsoft 365 fit', 'Can it run through Word, PowerPoint, Excel, Outlook, Teams or SharePoint?'], ['Safe AI fit', 'Can it be done within OPG\u2019s Safe AI guidance and data rules?']];
         var good = [['Recap a work-planning meeting', 'Teams transcript to decisions, owners and a drafted follow-up.'], ['Build a status summary', 'Pulls updates from reports, trackers and emails into one view.'], ['Draft a Moments That Matter story', 'Turns team notes into a story in the OPG template.'], ['Summarise employee feedback', 'Turns survey comments and emails into themes and next steps.']];
         var weak = [['Too vague', '\u201cUse Copilot to make my job easier.\u201d No workflow, input or output.'], ['Not safe', 'Anything that skips human review on safety, regulatory or contractual decisions.'], ['Too niche', 'A one-time task for one person offers little reusable value.'], ['Outside Microsoft 365', 'Work that depends entirely on systems Copilot cannot reach.']];
-        return '<p class="kicker">14 / Over to you</p><h2 class="h2-sm">Help Us Build The <em>Persona-Based Training</em></h2>' +
+        return '<p class="kicker">13 / Over to you</p><h2 class="h2-sm">Help Us Build The <em>Persona-Based Training</em></h2>' +
           '<div class="banner cta-banner"><span>Think of a repetitive task in your role that Copilot could take on, and that others would find useful too. The strongest ones shape the Level 200 sessions.</span><span class="cta-col"><span class="btn btn-primary" aria-disabled="true">Open the use case form ' + I.out + '</span><span class="ph">Add the OPG form link</span></span></div>' +
           '<div class="kinds"><article class="kind"><span class="kt">Option 1</span><h3>A Copilot workflow</h3><p>A task you repeat that Copilot takes the first pass at, in the apps you already use.</p><div class="kflow"><span class="kf"><i>You</i>Ask with a prompt</span><span class="link"><i></i></span><span class="kf hl"><i>Copilot</i>Drafts the output</span><span class="link"><i style="animation-delay:.6s"></i></span><span class="kf"><i>You</i>Review and use</span></div></article>' +
           '<article class="kind"><span class="kt">Option 2</span><h3>An agent idea</h3><p>A repeatable process for an approved agent later, reviewed by the CoE against Safe AI first.</p><div class="kflow"><span class="kf"><i>Trigger</i>A file or email arrives</span><span class="link"><i></i></span><span class="kf hl"><i>Agent</i>Runs the same steps</span><span class="link"><i style="animation-delay:.6s"></i></span><span class="kf"><i>A person</i>Reviews and decides</span></div></article></div>' +
@@ -872,13 +844,13 @@ body.no-webgl .sky-fallback { opacity: 1; }
     { id: 'plan', label: 'From use case to training', place: 'Transmission line \u00b7 Sunset', side: 'wide-left', cls: 'wide',
       html: function () {
         var steps = [['Ongoing', 'Use cases come in', 'Everyone', 100], ['Date to be confirmed', 'Submissions close', 'Everyone', 100], ['CoE + AI Ambassadors', 'Reviewed against Safe AI and the criteria', 'Review panel', 64], ['1 hour', 'Shortlist workshop', 'Top submitters', 38], ['Leadership review', 'Priorities confirmed', 'OPG leadership', 20], ['Level 200', 'Built into persona training and the prompt library', 'Everyone again', 100]];
-        return '<p class="kicker">15 / How we build it</p><h2>From Your Use Case To <em>The Training</em></h2>' +
+        return '<p class="kicker">14 / How we build it</p><h2>From Your Use Case To <em>The Training</em></h2>' +
           '<div class="pflow"><div class="prail" aria-hidden="true"><i></i></div><ol class="psteps">' + steps.map(function (s, i) { return '<li class="pstep"><span class="pdot" style="animation-delay:' + (i * 1).toFixed(1) + 's"></span><div class="card"><span class="pn">' + String(i + 1).padStart(2, '0') + '</span><span class="pg">' + s[0] + '</span><h3>' + s[1] + '</h3><span class="pw">' + s[2] + '</span><span class="vol"><i style="width:' + s[3] + '%"></i></span></div></li>'; }).join('') + '</ol></div>' +
           '<p class="sub">Workshops run for one hour. You only hear about a workshop if your use case is still in. Wins along the way are shared as Moments That Matter stories on the AI portal.</p>';
       } },
     { id: 'qa', label: 'Questions', place: 'Lake Ontario \u00b7 Night', side: 'right', cls: 'mid',
       html: function () {
-        return '<p class="kicker">16 / Ask us anything</p><h2>Questions<em>?</em></h2>' +
+        return '<p class="kicker">15 / Ask us anything</p><h2>Questions<em>?</em></h2>' +
           '<p class="sub">Ask now, ask your AI Ambassador afterwards, or bring it to office hours. Here are the ones that come up most.</p>' +
           '<div class="ask" aria-hidden="true"><svg class="sp" viewBox="0 0 24 24"><path d="' + SPARK + '"/></svg><span class="qs"><span>How do I get a licence?</span><span>Which session should I start with?</span><span>Is my data safe?</span><span>Can Copilot recap my meetings?</span></span><span class="send">' + I.up + '</span></div>' +
           '<div class="faq">' + faqs.map(function (f) { return '<article><h3>' + f[0] + '</h3><p>' + f[1] + '</p></article>'; }).join('') + '</div>' +
@@ -1901,7 +1873,6 @@ const SHOTS = {
   principles:  { pos: V(150, 150, -275), tgt: V(-15, 24, -40), tod: 0.37, fov: 46 },
   support:     { pos: V(270, 78, -430), tgt: V(165, 6, -235), tod: 0.42 },
   why:         { pos: V(121, 13, 10), tgt: V(-40, 9, 22), tod: 0.47, fov: 64, zone: 'in' },
-  compare:     { pos: V(-52, 9, 9), tgt: V(-20, 9, 27), tod: 0.5, fov: 60, zone: 'in' },
   copilot:     { pos: V(40, 29, 4), tgt: V(104, 21, 23), tod: 0.53, fov: 56, zone: 'in' },
   personas:    { pos: V(706, 112, -405), tgt: V(650, 36, -640), tod: 0.6, fov: 50 },
   courses:     { pos: V(628, 48, -452), tgt: V(548, 14, -562), tod: 0.66, fov: 54 },
@@ -1936,7 +1907,7 @@ const LABELS = {
 };
 const STOP_LABELS = {
   hero: ['lake', 'reactors'], agenda: ['turbine', 'reactors', 'crane'], leadership: ['admin'], team: ['admin', 'reactors', 'vacuum', 'switchyard'],
-  experience: ['lines', 'switchyard'], principles: ['reactors', 'vacuum', 'crane'], support: ['switchyard', 'storage'], why: ['unit4'], compare: ['unit2'],
+  experience: ['lines', 'switchyard'], principles: ['reactors', 'vacuum', 'crane'], support: ['switchyard', 'storage'], why: ['unit4'],
   copilot: ['holo'], personas: ['dam', 'reservoir', 'powerhouse'], courses: ['powerhouse', 'dam'], calendar: ['solar', 'storage'], nextsteps: ['reactors', 'turbine', 'dam'],
   plan: ['lines'], qa: ['reactors', 'turbine'],
 };
@@ -2048,7 +2019,7 @@ function frame() {
   // energy pulses
   if (pulsePoints) { const arr = pulsePoints.geometry.attributes.position.array; for (let i = 0; i < pulses.length; i++) { const p = pulses[i]; p.t = (p.t + p.v * dt) % 1; const v = p.c.getPointAt(p.t); arr[i * 3] = v.x; arr[i * 3 + 1] = v.y; arr[i * 3 + 2] = v.z; } pulsePoints.geometry.attributes.position.needsUpdate = true; }
   // holograms: fade by stop
-  const heroOn = currentId === 'qa' ? 1 : 0; const holoOn = (currentId === 'copilot' || currentId === 'compare') ? 1 : 0;
+  const heroOn = currentId === 'qa' ? 1 : 0; const holoOn = currentId === 'copilot' ? 1 : 0;
   fadeHologram(heroHologram, heroOn, dt); heroHologram.position.y = 150 + Math.sin(t * 0.6) * 4;
   fadeHologram(hallHologram, holoOn, dt); hallHologram.position.y = Math.sin(t * 0.7) * 0.8;
   holoRing.material.opacity = hallHologram.userData.f * 0.6; holoBeam.material.opacity = hallHologram.userData.f * 0.09; holoRing.rotation.z = t * 0.2;
